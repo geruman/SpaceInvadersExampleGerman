@@ -10,6 +10,7 @@ public class ShipController : MonoBehaviour
     public float maxSpeed = 30f;
     public float speed = 1f;
     public AudioSource shootingSound;
+    public GameObject bulletPrefab;
     // Se llama a Start antes de la primera actualización del cuadro
 
     void Start()
@@ -26,6 +27,7 @@ public class ShipController : MonoBehaviour
         movement = new Vector2(moveHorizontal, 0f);
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Instantiate(bulletPrefab,transform.position,transform.rotation);
             shootingSound.Play();
         }
     }
